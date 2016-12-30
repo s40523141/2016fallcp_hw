@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>2016Fall 程式練習題-12345 - 2016Fall CPA 課程網誌 (虎尾科大MDE)</title>
+    <title>元旦快樂 - 2016Fall CPA 課程網誌 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="./2016fall-cheng-shi-lian-xi-ti-12345.html">
+<link rel="canonical" href="./yuan-dan-kuai-le.html">
 
-        <meta name="author" content="yen" />
-        <meta name="keywords" content="使用導引" />
-        <meta name="description" content="1234已知截至第六週 2016fallcpa 的分組資料位於倉儲中的 w6_group.txt, 而從學校修課系統下載的修課人員名條則為 w6_list.txt, 請各組著手練習, 找出尚未納入分組的人員名單, 並研擬如何處置上課一個半月卻尚未進入情況的學員?" />
+        <meta name="author" content="40523141" />
+        <meta name="keywords" content="Brython" />
+        <meta name="description" content="2017元旦快樂" />
 
         <meta property="og:site_name" content="2016Fall CPA 課程網誌 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="2016Fall 程式練習題-12345"/>
-        <meta property="og:url" content="./2016fall-cheng-shi-lian-xi-ti-12345.html"/>
-        <meta property="og:description" content="1234已知截至第六週 2016fallcpa 的分組資料位於倉儲中的 w6_group.txt, 而從學校修課系統下載的修課人員名條則為 w6_list.txt, 請各組著手練習, 找出尚未納入分組的人員名單, 並研擬如何處置上課一個半月卻尚未進入情況的學員?"/>
-        <meta property="article:published_time" content="2016-10-31" />
-            <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="使用導引" />
-            <meta property="article:author" content="yen" />
+        <meta property="og:title" content="元旦快樂"/>
+        <meta property="og:url" content="./yuan-dan-kuai-le.html"/>
+        <meta property="og:description" content="2017元旦快樂"/>
+        <meta property="article:published_time" content="2016-12-30" />
+            <meta property="article:section" content="Course" />
+            <meta property="article:tag" content="Brython" />
+            <meta property="article:author" content="40523141" />
 
 
     <!-- Bootstrap -->
@@ -261,10 +261,10 @@ init_mathjax();
                          <li><a href="./pages/about/">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="./category/course.html">Course</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="./category/misc.html">Misc</a>
                         </li>
             </ul>
@@ -290,10 +290,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./2016fall-cheng-shi-lian-xi-ti-12345.html"
+                    <a href="./yuan-dan-kuai-le.html"
                        rel="bookmark"
-                       title="Permalink to 2016Fall 程式練習題-12345">
-                        2016Fall 程式練習題-12345
+                       title="Permalink to 元旦快樂">
+                        元旦快樂
                     </a>
                 </h1>
             </header>
@@ -303,20 +303,93 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-10-31T12:00:00+08:00"> 週一 31 十月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-30T12:00:00+08:00"> 週五 30 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="./author/yen.html"><i class="fa fa-user"></i> yen</a>
+            <a href="./author/40523141.html"><i class="fa fa-user"></i> 40523141</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/shi-yong-dao-yin.html">使用導引</a>
+	<a href="./tag/brython.html">Brython</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>1234已知截至第六週 2016fallcpa 的分組資料位於倉儲中的 <a href="./../w6_group.txt">w6_group.txt</a>, 而從學校修課系統下載的修課人員名條則為 <a href="./../w6_list.txt">w6_list.txt</a>, 請各組著手練習, 找出尚未納入分組的人員名單, 並研擬如何處置上課一個半月卻尚未進入情況的學員?</p>
+                <p>2017元旦快樂</p>
 
+
+<!-- 導入 Brython 標準程式庫 -->
+
+<script type="text/javascript" 
+    src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js">
+</script>
+
+<!-- 啟動 Brython -->
+
+<script>
+window.onload=function(){
+brython(1);
+}
+</script>
+
+<!-- 以下可以執行  Brython 程式 -->
+
+<div id="newyear"></div>
+
+<script type="text/python3">
+from browser import document
+from browser import html
+import random
+print_location = document["newyear"]
+
+def lottery(e):
+    num_list = random.sample(list(range(1, 50)), 6)
+    for i in range(6):
+        print_location <= num_list[i] + html.BR()
+    print_location <= "恭喜中獎!" + html.BR()
+
+document["but2"].bind("click", lottery)
+</script>
+
+<p><button id="but2">想中獎嗎</button>
+</pre></p>
+<p>以下建立一個猜數字遊戲</p>
+<div id="id3"></div>
+
+<script type="text/python3">
+from browser import document
+from browser import html
+import random
+
+id3 = document["id3"]
+def guess(ev):
+    # 清除 id3 中的內容
+    id3.clear()
+    id3 <= "開始玩猜數字遊戲" + html.BR()
+    標準答案 = random.randint(1, 100)
+    你猜的數字 = int(input("請輸入您所猜 1~100 間的整數:"))
+    猜測次數 = 1
+    while 標準答案 != 你猜的數字:
+        if 標準答案 < 你猜的數字:
+            #print("太大了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 <= "太大了，再猜一次 :)加油" + html.BR()
+        else:
+            #print("太小了，再猜一次 :)加油")
+            # 清除 id3 中的內容
+            id3.clear()
+            id3 <= "太小了，再猜一次 :)加油" + html.BR()
+        你猜的數字 = int(input("請輸入您所猜 1~100 間的整數:"))
+        猜測次數 += 1
+
+    #print("猜對了！總共猜了", 猜測次數, "次")
+    id3 <= "猜對了！答案為" + str(標準答案) + ", 總共猜了" + str(猜測次數) + "次"
+
+document["but3"].bind("click", guess)
+</script>
+
+<p><button id="but3">玩猜數字遊戲</button></p>
             </div>
             <!-- /.entry-content -->
         </article>
