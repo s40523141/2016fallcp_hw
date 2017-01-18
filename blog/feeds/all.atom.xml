@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPA 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-01-06T12:00:00+08:00</updated><entry><title>單線旋轉動畫</title><link href="./dan-xian-xuan-zhuan-dong-hua.html" rel="alternate"></link><published>2017-01-06T12:00:00+08:00</published><updated>2017-01-06T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2017-01-06:./dan-xian-xuan-zhuan-dong-hua.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>2016Fall CPA 課程網誌 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2017-01-06T12:00:00+08:00</updated><entry><title>單線旋轉動畫</title><link href="./dan-xian-xuan-zhuan-dong-hua.html" rel="alternate"></link><published>2017-01-06T12:00:00+08:00</published><updated>2017-01-06T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2017-01-06:./dan-xian-xuan-zhuan-dong-hua.html</id><summary type="html">&lt;p&gt;利用畫線加上轉圈 來製作多線旋轉動畫&lt;/p&gt;
+
 
 &lt;!-- 導入 Brython 標準程式庫 --&gt;
 
@@ -87,17 +88,94 @@ def animate():
     y2 = y1 +  r*math.sin(theta*deg)
     line(x1, y1, x2, y2)
     # 再加一條小線段
-    x3 = x2 + 50*math.cos(1*theta*deg)
-    y3 = y2 + 50*math.sin(1*theta*deg)
+    x3 = x2 + 50*math.cos(10*theta*deg)
+    y3 = y2 + 50*math.sin(10*theta*deg)
     line(x2, y2, x3, y3)
-    x4 = x3 + 50*math.cos(1000*theta*deg)
-    y4 = y3 + 50*math.sin(1000*theta*deg)
+    x4 = x3 + 50*math.cos(10000*theta*deg)
+    y4 = y3 + 50*math.sin(10000*theta*deg)
     line(x3, y3, x4, y4)
-    x5 = x4 + 50*math.cos(40*theta*deg)
-    y5 = y4 + 50*math.sin(40*theta*deg)
+    x5 = x4 + 50*math.cos(100*theta*deg)
+    y5 = y4 + 50*math.sin(100*theta*deg)
     line(x4, y4, x5, y5)
     circle(x1, y1, 5)
     theta += 1
+
+timer.set_interval(animate, 50)
+&lt;/script&gt;
+
+&lt;p&gt;以下為程式碼:&lt;/p&gt;
+
+&lt;h1&gt;畫圓函式&lt;/h1&gt;
+
+&lt;p&gt;def circle(x,y,r):
+        ctx.beginPath()
+        ctx.arc(x, y, r, 0, math.pi*2, True)
+        ctx.fill()
+        ctx.closePath()
+
+def line(x1, y1, x2, y2):
+    # 以下可以利用 ctx 物件進行畫圖
+    # 先畫一條直線
+    ctx.beginPath()
+    # 設定線的寬度為 1 個單位
+    ctx.lineWidth = 1
+    # 將畫筆移動到 (x1, y1) 座標點
+    ctx.moveTo(x1, y1)
+    # 然後畫直線到 (x2, y2) 座標點
+    ctx.lineTo(x2, y2)
+    # 設定顏色為藍色, 也可以使用 "rgb(0, 0, 255)" 字串設定顏色值
+    ctx.strokeStyle = "blue"
+    # 實際執行畫線
+    ctx.stroke()
+    ctx.closePath()
+
+line(200, 200, 200, 300)
+circle(200, 200, 5)
+
+x1 = 200
+y1 = 200
+r = 100
+deg = math.pi/180
+
+theta = 0
+
+# 每隔特定時間, 進行動畫繪製
+def animate():
+    global theta
+    # 刷新畫布
+    ctx.clearRect(0, 0, width, height)
+    # 逐一重新繪製直線與圓心球
+    x2 = x1 +  r*math.cos(theta*deg)
+    y2 = y1 +  r*math.sin(theta*deg)
+    line(x1, y1, x2, y2)
+    # 再加一條小線段
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;
+x3 = x2 + 50*math.cos(10*theta*deg)
+y3 = y2 + 50*math.sin(10*theta*deg)
+line(x2, y2, x3, y3)
+x4 = x3 + 50*math.cos(10000*theta*deg)
+y4 = y3 + 50*math.sin(10000*theta*deg)
+line(x3, y3, x4, y4)
+x5 = x4 + 50*math.cos(100*theta*deg)
+y5 = y4 + 50*math.sin(100*theta*deg)
+line(x4, y4, x5, y5)
+circle(x1, y1, 5)
+theta += 1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 timer.set_interval(animate, 50)
 &lt;/script&gt;</summary><category term="Brython"></category></entry><entry><title>來玩吧</title><link href="./lai-wan-ba.html" rel="alternate"></link><published>2016-12-30T13:00:00+08:00</published><updated>2016-12-30T13:00:00+08:00</updated><author><name>40523141</name></author><id>tag:,2016-12-30:./lai-wan-ba.html</id><summary type="html">&lt;p&gt;猜數字阿&lt;/p&gt;
