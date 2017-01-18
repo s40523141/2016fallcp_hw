@@ -103,15 +103,17 @@ def animate():
 timer.set_interval(animate, 50)
 &lt;/script&gt;
 
-&lt;p&gt;以下為程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+# 取畫布的寬與高度
+width = canvas.width
+height = canvas.height
 
-&lt;h1&gt;畫圓函式&lt;/h1&gt;
-
-&lt;p&gt;def circle(x,y,r):
-        ctx.beginPath()
-        ctx.arc(x, y, r, 0, math.pi*2, True)
-        ctx.fill()
-        ctx.closePath()
+# 畫圓函式
+def circle(x,y,r):
+    ctx.beginPath()
+    ctx.arc(x, y, r, 0, math.pi*2, True)
+    ctx.fill()
+    ctx.closePath()
 
 def line(x1, y1, x2, y2):
     # 以下可以利用 ctx 物件進行畫圖
@@ -149,36 +151,25 @@ def animate():
     y2 = y1 +  r*math.sin(theta*deg)
     line(x1, y1, x2, y2)
     # 再加一條小線段
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;
-x3 = x2 + 50*math.cos(10*theta*deg)
-y3 = y2 + 50*math.sin(10*theta*deg)
-line(x2, y2, x3, y3)
-x4 = x3 + 50*math.cos(10000*theta*deg)
-y4 = y3 + 50*math.sin(10000*theta*deg)
-line(x3, y3, x4, y4)
-x5 = x4 + 50*math.cos(100*theta*deg)
-y5 = y4 + 50*math.sin(100*theta*deg)
-line(x4, y4, x5, y5)
-circle(x1, y1, 5)
-theta += 1
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+    x3 = x2 + 50*math.cos(10*theta*deg)
+    y3 = y2 + 50*math.sin(10*theta*deg)
+    line(x2, y2, x3, y3)
+    x4 = x3 + 50*math.cos(10000*theta*deg)
+    y4 = y3 + 50*math.sin(10000*theta*deg)
+    line(x3, y3, x4, y4)
+    x5 = x4 + 50*math.cos(100*theta*deg)
+    y5 = y4 + 50*math.sin(100*theta*deg)
+    line(x4, y4, x5, y5)
+    circle(x1, y1, 5)
+    theta += 1
 
 timer.set_interval(animate, 50)
-&lt;/script&gt;</summary><category term="Brython"></category></entry><entry><title>來玩吧</title><link href="./lai-wan-ba.html" rel="alternate"></link><published>2016-12-30T13:00:00+08:00</published><updated>2016-12-30T13:00:00+08:00</updated><author><name>40523141</name></author><id>tag:,2016-12-30:./lai-wan-ba.html</id><summary type="html">&lt;p&gt;猜數字阿&lt;/p&gt;
+
+
+
+&lt;/script&gt;
+
+&lt;p&gt;心得:利用程式繪製一個數條直線連接再一起轉動&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>來玩吧</title><link href="./lai-wan-ba.html" rel="alternate"></link><published>2016-12-30T13:00:00+08:00</published><updated>2016-12-30T13:00:00+08:00</updated><author><name>40523141</name></author><id>tag:,2016-12-30:./lai-wan-ba.html</id><summary type="html">&lt;p&gt;猜數字阿&lt;/p&gt;
 
 
 &lt;!-- 導入 Brython 標準程式庫 --&gt;
@@ -306,7 +297,10 @@ def guess(ev):
 document["but3"].bind("click", guess)
 &lt;/script&gt;
 
-&lt;p&gt;&lt;button id="but3"&gt;玩猜數字遊戲&lt;/button&gt;&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>CP W15 練習</title><link href="./cp-w15-lian-xi.html" rel="alternate"></link><published>2016-12-23T12:00:00+08:00</published><updated>2016-12-23T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-12-23:./cp-w15-lian-xi.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
+&lt;p&gt;&lt;button id="but3"&gt;玩猜數字遊戲&lt;/button&gt;&lt;/p&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;心得:利用程式製作猜這透遊戲和猜數字遊戲 過程中錯誤很多 但願以後可以慢慢改進&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>CP W15 練習</title><link href="./cp-w15-lian-xi.html" rel="alternate"></link><published>2016-12-23T12:00:00+08:00</published><updated>2016-12-23T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-12-23:./cp-w15-lian-xi.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
 
 &lt;script type="text/javascript" 
     src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
@@ -454,10 +448,7 @@ mynum = input("要印幾次?")
 for i in range(int(mynum)):
     #container&lt;="W14練習-2"+html.BR()
     container&lt;=mystring+html.BR()
-&lt;/script&gt;</summary><category term="每週練習"></category></entry><entry><title>W13 練習-2</title><link href="./w13-lian-xi-2.html" rel="alternate"></link><published>2016-12-10T12:00:00+08:00</published><updated>2016-12-10T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-12-10:./w13-lian-xi-2.html</id><summary type="html">&lt;p&gt;將&lt;a herf="http://mde.tw/2016fallcp/course/Python3Programs.txt"&gt;
-http://mde.tw/2016fallcp/course/Python3Programs.txt&lt;/a&gt; 整理成brython
-練習:編寫一個可以將適用者輸入的攝氏溫度,轉為華氏溫度&lt;/p&gt;
-
+&lt;/script&gt;</summary><category term="每週練習"></category></entry><entry><title>W13 練習-2</title><link href="./w13-lian-xi-2.html" rel="alternate"></link><published>2016-12-10T12:00:00+08:00</published><updated>2016-12-10T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-12-10:./w13-lian-xi-2.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;!-- 導入 Brython 標準程式庫 --&gt;
 
@@ -488,10 +479,18 @@ output_string = "攝氏" +str(cdegree) + "度=華氏" +str(fdegree) + "度"
 container &lt;= output_string
 &lt;/script&gt;
 
-&lt;p&gt;開始進行範例分配&lt;/p&gt;
-&lt;p&gt;接受使用者輸入&lt;/p&gt;
-&lt;p&gt;利用aler()顯示結果&lt;/p&gt;
-&lt;p&gt;直接列印結果&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>2016Fall</title><link href="./2016fall.html" rel="alternate"></link><published>2016-12-09T12:00:00+08:00</published><updated>2016-12-09T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-12-09:./2016fall.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
+&lt;pre class="brush: python"&gt;
+from browser import document as doc
+from browser import html
+container = doc['temperature']
+mystring = ""
+cdegree = input("請輸入攝氏溫度:")
+fdegree = float(cdegree)*9/5+32
+output_string = "攝氏" +str(cdegree) + "度=華氏" +str(fdegree) + "度"
+container &lt;= output_string
+&lt;/script&gt;
+
+&lt;p&gt;心得:利用程式來換算華視與攝氏之間的溫度&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>2016Fall</title><link href="./2016fall.html" rel="alternate"></link><published>2016-12-09T12:00:00+08:00</published><updated>2016-12-09T12:00:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-12-09:./2016fall.html</id><summary type="html">&lt;!-- 導入 Brython 標準程式庫 --&gt;
 
 &lt;script type="text/javascript" 
     src="https://cdn.rawgit.com/brython-dev/brython/master/www/src/brython_dist.js"&gt;
@@ -1291,7 +1290,9 @@ for s in mylist:
     num = num + 1
 &lt;/script&gt;
 
-&lt;/pre&gt;</summary><category term="Brython"></category></entry><entry><title>W10 Brython 繪圖範例</title><link href="./w10-brython-hui-tu-fan-li.html" rel="alternate"></link><published>2016-11-14T12:00:00+08:00</published><updated>2016-11-14T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-11-14:./w10-brython-hui-tu-fan-li.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;心得:進階利用直線來繪製吉他弦&lt;/p&gt;</summary><category term="Brython"></category></entry><entry><title>W10 Brython 繪圖範例</title><link href="./w10-brython-hui-tu-fan-li.html" rel="alternate"></link><published>2016-11-14T12:00:00+08:00</published><updated>2016-11-14T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-11-14:./w10-brython-hui-tu-fan-li.html</id><summary type="html">&lt;p&gt;Brython 繪圖&lt;/p&gt;
 
 
 &lt;p&gt;繪圖流程, 導入程式庫, 啟動, 然後引用各種模組開始繪圖&lt;/p&gt;
@@ -1549,7 +1550,9 @@ for i in not_in_group:
     container3 &lt;= "第"+str(n)+"位: "+ str(i)
     n = n + 1
     container3 &lt;= html.BR()
-&lt;/script&gt;</summary><category term="使用導引"></category></entry><entry><title>2016Fall 機械設計主題教學</title><link href="./2016fall-ji-jie-she-ji-zhu-ti-jiao-xue.html" rel="alternate"></link><published>2016-09-02T12:00:00+08:00</published><updated>2016-09-02T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-09-02:./2016fall-ji-jie-she-ji-zhu-ti-jiao-xue.html</id><summary type="html">&lt;p&gt;知識管理與最佳化應用實驗室試圖利用計算機程式、網際內容管理、電腦輔助設計實習與協同產品設計實習等課程, 進行與機械設計相關的主題式教學, 其中包含強化創造力的教學、令學員熟習六種工程表達方式, 並且俱備融入協同設計所需要的四大面向知識與技能.&lt;/p&gt;
+&lt;/script&gt;
+
+&lt;p&gt;心得:等間隔畫更多直線&lt;/p&gt;</summary><category term="使用導引"></category></entry><entry><title>2016Fall 機械設計主題教學</title><link href="./2016fall-ji-jie-she-ji-zhu-ti-jiao-xue.html" rel="alternate"></link><published>2016-09-02T12:00:00+08:00</published><updated>2016-09-02T12:00:00+08:00</updated><author><name>bingchang</name></author><id>tag:,2016-09-02:./2016fall-ji-jie-she-ji-zhu-ti-jiao-xue.html</id><summary type="html">&lt;p&gt;知識管理與最佳化應用實驗室試圖利用計算機程式、網際內容管理、電腦輔助設計實習與協同產品設計實習等課程, 進行與機械設計相關的主題式教學, 其中包含強化創造力的教學、令學員熟習六種工程表達方式, 並且俱備融入協同設計所需要的四大面向知識與技能.&lt;/p&gt;
 
 
 &lt;h1&gt;機械設計主題教學&lt;/h1&gt;
